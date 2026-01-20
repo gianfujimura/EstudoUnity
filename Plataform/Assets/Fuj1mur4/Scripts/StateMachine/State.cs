@@ -3,13 +3,13 @@ using System.Diagnostics;
 
 public abstract class State 
 {
-    public readonly StateMachine stateMachine;
+    public readonly StateMachine machine;
     public readonly State parent;
     public State activeChild;
 
     public State(StateMachine stateMachine, State parent)
     {
-        this.stateMachine = stateMachine;
+        this.machine = stateMachine;
         this.parent = parent;
     }
 
@@ -45,7 +45,7 @@ public abstract class State
 
         if (nextState != null)
         {
-            //TransitionSequencer.RequestTransition(this, nextState);
+            machine.sequencer.RequestTransition(this, nextState);
             return;
         }
 

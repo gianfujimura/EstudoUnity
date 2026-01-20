@@ -17,5 +17,5 @@ public class RootState : State
     }
 
     protected override State GetInitialState() => GroundedState;
-    protected override State GetTransition() => PlayerContext.IsGrounded ? null : AirborneState;
+    protected override State GetTransition() => null;
 }
